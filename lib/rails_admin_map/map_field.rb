@@ -1,7 +1,7 @@
 module RailsAdmin::Config::Fields::Types
-  class Coordinates < RailsAdmin::Config::Fields::Base
+  class Map < RailsAdmin::Config::Fields::Base
 
-    RailsAdmin::Config::Fields::Types::register(:coordinates, self)
+    RailsAdmin::Config::Fields::Types::register(:map, self)
 
     register_instance_option(:partial) do
       :coordinates

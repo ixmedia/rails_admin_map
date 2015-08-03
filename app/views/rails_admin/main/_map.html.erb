@@ -1,5 +1,5 @@
-
-<%= javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=false&callback=initMap','rails_admin/rails_admin_map' %>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=false&amp;callback=initMap"></script>
+<%= javascript_include_tag 'rails_admin/rails_admin_map' %>
 <%= stylesheet_link_tag 'rails_admin/rails_admin_map' %>
 
 <div style="width: 600px; height: 320px;" data-zoom="<%= field.default_zoom %>" class="js-rails-admin-map-div"></div>

@@ -61,7 +61,7 @@ googleMapsCoordinatesInputs = (function() {
     };
     map = new google.maps.Map(mapContainer[0], mapOptions);
     markerOption = {
-      icon: pin,
+      // icon: pin,
       draggable: !this.readOnly,
       animation: google.maps.Animation.DROP,
       position: initMarkerCoord,
@@ -118,7 +118,6 @@ googleMapsCoordinatesInputs = (function() {
     })(this));
     return google.maps.event.addListener(mapInfo.marker, 'dragend', (function(_this) {
       return function(e) {
-        console.log('asdas');
         _this.updateCoords(e.latLng.lat(), e.latLng.lng());
       };
     })(this));

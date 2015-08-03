@@ -1,0 +1,8 @@
+
+<%= javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=false&callback=initMap','rails_admin/rails_admin_map' %>
+<%= stylesheet_link_tag 'rails_admin/rails_admin_map' %>
+
+<div style="width: 600px; height: 320px;" data-zoom="<%= field.default_zoom %>" class="js-rails-admin-map-div"></div>
+
+<%= form.send :hidden_field, field.latitude_field, class: 'js-lat-hidden' %>
+<%= form.send :hidden_field, field.longitude_field, class: 'js-lng-hidden' %>

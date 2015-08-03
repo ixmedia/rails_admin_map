@@ -1,8 +1,8 @@
 # coding: UTF-8
 
 Gem::Specification.new do |s|
-  # s.add_runtime_dependency 'rails', '~> 4.0', '>= 4.0.0'
-  # s.add_runtime_dependency 'rails_admin', '~> 0.6', '> 0.6.5'
+  s.add_runtime_dependency 'rails', '~> 4.0'
+  s.add_runtime_dependency 'rails_admin', '~> 0.6'
 
   s.name              = "rails_admin_map"
   s.version           = "0.1.0"

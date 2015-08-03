@@ -38,6 +38,8 @@ end
 - `latitude_field` - the name of the latitude field that forms the the co-ordinate with the latitude field specified. Defaults to "latitude"
 - `longitude_field` - the name of the longitude field that forms the the co-ordinate with the latitude field specified. Defaults to "longitude"
 - `default_zoom` - Map default zoom.
+- `default_latitude` - Default latitude when latitude fields is empty
+- `default_longitude` - Default latitude when longitude fields is empty
 A more complicated configuration example:
 
 ```ruby
@@ -47,6 +49,8 @@ RailsAdmin.config do |config|
       field :coordinates, :map do
         latitude_field :latitude
         longitude_field :longitude
+        default_latitude 40.712784
+        default_longitude -74.005941
         default_zoom 10
       end
     end

@@ -8,12 +8,14 @@ googleMapsCoordinatesInputs = (function() {
     this.readOnly = this.element.attr('data-readonly') && this.element.attr('data-readonly') === 'true' ? true : false;
     this.coordLatHiddenInput = this.coordLatInput = $('.js-lat-hidden');
     this.coordLngHiddenInput = this.coordLngInput = $('.js-lng-hidden');
-    this.defaultZoom =parseInt($el.attr('data-zoom'))
 
-    if (this.coordLngHiddenInput.length === 0 && this.coordLatHiddenInput.length === 0) {
-      this.init(46.8130389, -71.2300141);
-    } else {
+    this.defaultZoom = parseInt($el.attr('data-zoom'))
+    this.defaultCoord = JSON.parse($el.attr('data-default-coord'))
+    console.log(this.defaultCoord);
+    if (this.coordLatInput.val() && this.coordLngInput.val()) {
       this.init(this.coordLatHiddenInput.val(), this.coordLngHiddenInput.val());
+    } else {
+      this.init(this.defaultCoord[0], this.defaultCoord[1]);
     }
   }
 

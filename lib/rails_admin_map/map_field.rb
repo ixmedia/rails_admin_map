@@ -30,5 +30,16 @@ module RailsAdmin::Config::Fields::Types
       :latitude
     end
 
+    def dom_name
+      @dom_name ||= "#{bindings[:form].object_name}_#{@name}_#{longitude_field}"
+    end
+
+    def latitude_dom_name
+      @lat_dom_name ||= "#{bindings[:form].object_name}_#{latitude_field}"
+    end
+
+    def longitude_dom_name
+      @lon_dom_name ||= "#{bindings[:form].object_name}_#{longitude_field}"
+    end
   end
 end

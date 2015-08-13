@@ -5,10 +5,10 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails_admin', '~> 0.6'
 
   s.name              = "rails_admin_map"
-  s.version           = "0.1.2"
+  s.version           = "0.1.3"
   s.platform          = Gem::Platform::RUBY
-  s.authors           = ["Louis-Philippe Dumas"]
-  s.email             = ["louis.philippe.dumas@gmail.com"]
+  s.authors           = ["Louis-Philippe Dumas", "Vincent Ouellet"]
+  s.email             = ["louis.philippe.dumas@gmail.com", "vincent.ouellet@gmail.com"]
   s.homepage          = "http://github.com/lpdumas/"
   s.license           = "MIT"
   s.summary           = "Add a coordinate field with a google map handler to place markers"

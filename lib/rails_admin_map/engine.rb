@@ -4,7 +4,7 @@ module RailsAdminMap
     isolate_namespace RailsAdmin
 
     initializer "RailsAdminJcrop precompile hook" do |app|
-      app.config.assets.precompile += ['rails_admin/rails_admin_map.css', 'rails_admin/rails_admin_map.js']
+      app.config.assets.precompile += ['rails_admin/rails_admin_map.css', 'rails_admin/select2.js', 'rails_admin/rails_admin_map.js']
     end
   end
 end

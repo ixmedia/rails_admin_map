@@ -29,6 +29,7 @@ googleMapsCoordinatesInputs = (function() {
     };
     mapinfo = this.initGoogleMap(geoposition, this.element);
     this.bindMapEvents(mapinfo);
+    this.initAutoCompleteCityInput(mapinfo);
   };
 
   googleMapsCoordinatesInputs.prototype.initGeoLocation = function(callback) {
@@ -128,6 +129,56 @@ googleMapsCoordinatesInputs = (function() {
     })(this));
   };
 
+  googleMapsCoordinatesInputs.prototype.initAutoCompleteCityInput = function (mapinfo) {
+    var _this = this;
+    $('.js-geocoding-select').select2({
+      ajax: {
+        url: 'https://maps.googleapis.com/maps/api/geocode/json',
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+          return { address: params.term };
+        },
+        processResults: function (data) {
+          locations = [];
+          ref = data.results;
+          for (i = 0, len = ref.length; i < len; i++) {
+            loc = ref[i];
+            locations.push({
+              'id': loc.formatted_address.split(',')[0],
+              'text': loc.formatted_address,
+              'latlng': loc.geometry.location
+            });
+          }
+          return { results: locations };
+        },
+        cache: true
+      },
+      escapeMarkup: function (markup) {
+        return markup;
+      },
+      minimumInputLength: 1,
+      language: "fr",
+      placeholder: "Rechercher par code postal, ville, adresse...",
+      templateResult: function(data) {
+        if(data.loading) {
+          return data.text;
+        }
+        return "<div>" + data.text + "</div>";
+      },
+      templateSelection: function (data) {
+        if(data.latlng) {
+          _this.coordLatInput.val(data.latlng.lat)
+          _this.coordLngInput.val(data.latlng.lng)
+          // _this.hiddenCityInput.val(data.id)
+          mapinfo.marker.setPosition(data.latlng)
+          mapinfo.map.setCenter(data.latlng)
+          mapinfo.map.setZoom(10)
+        }
+        return data.text
+      }
+    })
+  };
   return googleMapsCoordinatesInputs;
 })();
 
@@ -150,3 +201,6 @@ var initMap = function() {
     };
   };
 };
+
+
+console.log($.fn.select2);

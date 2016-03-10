@@ -2,7 +2,7 @@
 <%= stylesheet_link_tag 'rails_admin/rails_admin_map' %>
 
 <div style="margin-bottom: 10px;">
-  <select class="js-geocoding-select"><option value="">Choisir</option></select>
+  <select style="min-width: 320px;" class="js-geocoding-select"><option value="">Choisir</option></select>
 </div>
 <div style="width: 600px; height: 320px;"
   data-inputs="<%= field.latitude_dom_name %>,<%= field.longitude_dom_name %>"

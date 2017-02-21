@@ -33,6 +33,11 @@ RailsAdmin.config do |config|
 end
 ```
 
+After, add you map api key to the `config/application.rb`
+```ruby
+config.map_api_key = 'YOUR_KEY_HERE'
+```
+
 ## Config
 
 - `latitude_field` - the name of the latitude field that forms the the co-ordinate with the latitude field specified. Defaults to "latitude"

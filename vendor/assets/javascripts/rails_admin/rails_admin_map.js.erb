@@ -3,10 +3,14 @@ var googleMapsCoordinatesInputs,
 
 googleMapsCoordinatesInputs = (function() {
   function googleMapsCoordinatesInputs($el) {
+    var _this = this;
     this.init = __bind(this.init, this);
     this.element = $el;
     this.readOnly = this.element.attr('data-readonly') && this.element.attr('data-readonly') === 'true' ? true : false;
 
+    this.mapWrap = $el.closest('.js-map-wrap')
+    this.mapOverlay = this.mapWrap.find('.js-map-overlay')
+    this.removeButton = this.mapWrap.find('.js-remove')
     this.coordInputs = $el.attr('data-inputs').split(',');
     this.coordLatHiddenInput = this.coordLatInput = $('#' + this.coordInputs[0]);
     this.coordLngHiddenInput = this.coordLngInput = $('#' + this.coordInputs[1]);
@@ -19,6 +23,13 @@ googleMapsCoordinatesInputs = (function() {
     } else {
       this.init(this.defaultCoord[0], this.defaultCoord[1]);
     }
+
+    this.removeButton.on('click', function() {
+      _this.mapWrap.removeClass('active')
+      _this.coordLatHiddenInput.val('')
+      _this.coordLngHiddenInput.val('')
+    })
+
   }
 
   googleMapsCoordinatesInputs.prototype.init = function(lat, lng) {
@@ -26,10 +37,15 @@ googleMapsCoordinatesInputs = (function() {
     geoposition = {
       lat: lat,
       lng: lng
-    };
+    }, _this = this;
     mapinfo = this.initGoogleMap(geoposition, this.element);
     this.bindMapEvents(mapinfo);
     this.initAutoCompleteCityInput(mapinfo);
+
+    this.mapOverlay.on('click', function() {
+      _this.mapWrap.addClass('active')
+      _this.updateCoords(mapinfo.marker.getPosition().lat(), mapinfo.marker.getPosition().lng());
+    })
   };
 
   googleMapsCoordinatesInputs.prototype.initGeoLocation = function(callback) {
@@ -75,7 +91,6 @@ googleMapsCoordinatesInputs = (function() {
     };
     if (initMarkerCoord) {
       marker = new google.maps.Marker(markerOption);
-      this.updateCoords(geoposition.lat, geoposition.lng);
     } else {
       marker = null;
     }
@@ -202,5 +217,3 @@ var initMap = function() {
   };
 };
 
-
-console.log($.fn.select2);

@@ -1,15 +1,17 @@
 <%= javascript_include_tag 'rails_admin/select2', 'rails_admin/rails_admin_map' %>
 <%= stylesheet_link_tag 'rails_admin/rails_admin_map' %>
 
-<div style="margin-bottom: 10px;">
-  <select style="min-width: 320px;" class="js-geocoding-select"><option value="">Choisir</option></select>
-</div>
-<div style="width: 600px; height: 320px;"
-  data-inputs="<%= field.latitude_dom_name %>,<%= field.longitude_dom_name %>"
-  data-default-coord="[<%= field.default_latitude %>, <%= field.default_longitude %>]"
-  data-zoom="<%= field.default_zoom %>"
-  class="js-rails-admin-map-div">
-</div>
-
+<div class="rails-admin-map__wrapper js-map-wrap <%= @object.latitude.present? && @object.longitude.present? ? 'active' : '' %>">
+  <button type="button" class="rails-admin-map__remove-btn js-remove">Retirer</button>
+  <span class="rails-admin-map__overlay js-map-overlay"><span class="rails-admin-map__overlay-label">Cliquer pour ajouter</span></span>
+  <div style="margin-bottom: 10px;">
+    <select style="min-width: 320px;" class="js-geocoding-select"><option value="">Choisir</option></select>
+  </div>
+  <div style="width: 600px; height: 320px;"
+    data-inputs="<%= field.latitude_dom_name %>,<%= field.longitude_dom_name %>"
+    data-default-coord="[<%= field.default_latitude %>, <%= field.default_longitude %>]"
+    data-zoom="<%= field.default_zoom %>"
+    class="js-rails-admin-map-div"></div>
+</div><br>
 <%= form.send :hidden_field, field.latitude_field, class: 'js-lat-hidden', id: field.latitude_dom_name %>
 <%= form.send :hidden_field, field.longitude_field, class: 'js-lng-hidden', id: field.longitude_dom_name %>

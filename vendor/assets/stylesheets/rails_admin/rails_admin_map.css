@@ -1,3 +1,46 @@
+
+.rails-admin-map__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.rails-admin-map__wrapper.active .rails-admin-map__overlay {
+  display: none;
+}
+.rails-admin-map__wrapper.active .rails-admin-map__remove-btn {
+  display: inline-flex;
+}
+
+
+.rails-admin-map__remove-btn {
+  background-color: rgba(66, 139, 202, 1);
+  border: none;
+  color: white;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 30px;
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 7px;
+  z-index: 100;
+}
+
+.rails-admin-map__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(66, 139, 202, 0.9);
+  color: white;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
 .first-gem {
   color: blue;
 }

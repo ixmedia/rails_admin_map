@@ -13,5 +13,5 @@
     data-zoom="<%= field.default_zoom %>"
     class="js-rails-admin-map-div"></div>
 </div><br>
-<%= form.send :hidden_field, field.latitude_field, class: 'js-lat-hidden', id: field.latitude_dom_name %>
-<%= form.send :hidden_field, field.longitude_field, class: 'js-lng-hidden', id: field.longitude_dom_name %>
+<%= form.send :text_field, field.latitude_field, readonly: true, class: 'js-lat-hidden', id: field.latitude_dom_name %>
+<%= form.send :text_field, field.longitude_field, readonly: true, class: 'js-lng-hidden', id: field.longitude_dom_name %>

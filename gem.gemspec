@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails', '~> 4.1'
-  s.add_runtime_dependency 'rails_admin', '~> 1.0'
+  s.add_runtime_dependency 'rails_admin', '~> 0.6'
 
   s.name              = "rails_admin_map"
   s.version           = "0.1.9.1"

@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails_admin', '~> 0.6'
 
   s.name              = "rails_admin_map"
-  s.version           = "0.1.9.1"
+  s.version           = "0.1.9.2"
   s.platform          = Gem::Platform::RUBY
   s.authors           = ["Louis-Philippe Dumas", "Vincent Ouellet"]
   s.email             = ["louis.philippe.dumas@gmail.com", "vincent.ouellet@gmail.com"]

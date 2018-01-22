@@ -1,11 +1,13 @@
-# coding: UTF-8
+$:.push File.expand_path("../lib", __FILE__)
+
+require 'rails_admin_map/version'
 
 Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails', '~> 4.1'
   s.add_runtime_dependency 'rails_admin', '~> 0.6'
 
   s.name              = "rails_admin_map"
-  s.version           = "0.1.9.2"
+  s.version           = RailsAdminMap::VERSION
   s.platform          = Gem::Platform::RUBY
   s.authors           = ["Louis-Philippe Dumas", "Vincent Ouellet"]
   s.email             = ["louis.philippe.dumas@gmail.com", "vincent.ouellet@gmail.com"]

@@ -112,7 +112,7 @@ googleMapsCoordinatesInputs = (function() {
 
   googleMapsCoordinatesInputs.prototype.ajaxCallToUpdateCity = function(value) {
     var api, request;
-    api = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
+    api = 'https://maps.googleapis.com/maps/api/geocode/json?key=<%= Rails.application.config.map_api_key %>&address=';
     request = $.ajax({
       url: api + value,
       method: 'POST',
@@ -152,7 +152,7 @@ googleMapsCoordinatesInputs = (function() {
         dataType: 'json',
         delay: 250,
         data: function (params) {
-          return { address: params.term };
+          return { address: params.term, key: "<%= Rails.application.config.map_api_key %>" };
         },
         processResults: function (data) {
           locations = [];
@@ -216,4 +216,3 @@ var initMap = function() {
     };
   };
 };
-

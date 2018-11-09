@@ -1,5 +1,9 @@
+<script type="text/javascript">
+  window.google_api_key = "<%= Rails.application.config.map_api_key %>"
+</script>
 <%= javascript_include_tag 'rails_admin/select2', 'rails_admin/rails_admin_map' %>
 <%= stylesheet_link_tag 'rails_admin/rails_admin_map' %>
+
 
 <div class="rails-admin-map__wrapper js-map-wrap <%= @object.latitude.present? && @object.longitude.present? ? 'active' : '' %>">
   <button type="button" class="rails-admin-map__remove-btn js-remove">Retirer</button>

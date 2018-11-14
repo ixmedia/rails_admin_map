@@ -1,5 +1,8 @@
 <script type="text/javascript">
   window.google_api_key = "<%= Rails.application.config.map_api_key %>"
+  <% if Rails.application.config.respond_to?(:geo_api_key) %>
+    window.google_geo_key = "<%= Rails.application.config.geo_api_key %>"
+  <% end %>
 </script>
 <%= javascript_include_tag 'rails_admin/select2', 'rails_admin/rails_admin_map' %>
 <%= stylesheet_link_tag 'rails_admin/rails_admin_map' %>
@@ -8,9 +11,13 @@
 <div class="rails-admin-map__wrapper js-map-wrap <%= @object.latitude.present? && @object.longitude.present? ? 'active' : '' %>">
   <button type="button" class="rails-admin-map__remove-btn js-remove">Retirer</button>
   <span class="rails-admin-map__overlay js-map-overlay"><span class="rails-admin-map__overlay-label">Cliquer pour ajouter</span></span>
+
+  <% if Rails.application.config.respond_to?(:geo_api_key) %>
   <div style="margin-bottom: 10px;">
     <select style="min-width: 320px;" class="js-geocoding-select"><option value="">Choisir</option></select>
   </div>
+  <% end %>
+
   <div style="width: 600px; height: 320px;"
     data-inputs="<%= field.latitude_dom_name %>,<%= field.longitude_dom_name %>"
     data-default-coord="[<%= field.default_latitude %>, <%= field.default_longitude %>]"

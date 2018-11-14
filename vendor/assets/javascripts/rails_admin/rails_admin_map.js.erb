@@ -111,8 +111,9 @@ googleMapsCoordinatesInputs = (function() {
   };
 
   googleMapsCoordinatesInputs.prototype.ajaxCallToUpdateCity = function(value) {
+    if (!window.google_geo_key) return;
     var api, request;
-    api = 'https://maps.googleapis.com/maps/api/geocode/json?key='+window.google_api_key+'&address=';
+    api = 'https://maps.googleapis.com/maps/api/geocode/json?key='+window.google_geo_key+'&address=';
     request = $.ajax({
       url: api + value,
       method: 'POST',
@@ -145,6 +146,7 @@ googleMapsCoordinatesInputs = (function() {
   };
 
   googleMapsCoordinatesInputs.prototype.initAutoCompleteCityInput = function (mapinfo) {
+    if (!window.google_geo_key) return;
     var _this = this;
     $('.js-geocoding-select').select2({
       ajax: {
@@ -152,7 +154,7 @@ googleMapsCoordinatesInputs = (function() {
         dataType: 'json',
         delay: 250,
         data: function (params) {
-          return { address: params.term, key: window.google_api_key };
+          return { address: params.term, key: window.google_geo_key };
         },
         processResults: function (data) {
           locations = [];

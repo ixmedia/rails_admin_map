@@ -33,9 +33,13 @@ RailsAdmin.config do |config|
 end
 ```
 
-After, add you map api key to the `config/application.rb`
+After, add you google map api key(s) to the `config/application.rb`
 ```ruby
+# Map api key
 config.map_api_key = 'YOUR_KEY_HERE'
+
+# Map geocoding key (optional)
+config.geo_api_key = 'YOUR_KEY_HERE'
 ```
 
 ## Config

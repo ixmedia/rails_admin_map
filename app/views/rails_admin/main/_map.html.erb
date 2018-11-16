@@ -1,4 +1,5 @@
 <script type="text/javascript">
+  window.geocodeRoute = "<%= admin_map.map_geocode_path %>"
   window.google_api_key = "<%= Rails.application.config.map_api_key %>"
   <% if Rails.application.config.respond_to?(:geo_api_key) %>
     window.google_geo_key = "<%= Rails.application.config.geo_api_key %>"

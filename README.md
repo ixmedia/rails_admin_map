@@ -7,9 +7,12 @@ A simple gem to work with [rails_admin](https://github.com/sferik/rails_admin) t
 
 
 ```ruby
-source 'http://gems.ixmedia.com:9292/'
-
 gem "rails_admin_map"
+```
+
+Run this
+```
+rails generate rails_admin_map:install
 ```
 
 Then add an ```attr_accessor :coordinates``` to your active record model

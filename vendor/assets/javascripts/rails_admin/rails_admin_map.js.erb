@@ -113,12 +113,14 @@ googleMapsCoordinatesInputs = (function() {
   googleMapsCoordinatesInputs.prototype.ajaxCallToUpdateCity = function(value) {
     if (!window.google_geo_key) return;
     var api, request;
-    api = 'https://maps.googleapis.com/maps/api/geocode/json?key='+window.google_geo_key+'&address=';
+
     request = $.ajax({
-      url: api + value,
+      url: window.geocodeRoute,
       method: 'POST',
-      dataType: 'json'
+      dataType: 'json',
+      data: { address: value }
     });
+
     request.done((function(_this) {
       return function(data) {
         var city;
@@ -150,11 +152,12 @@ googleMapsCoordinatesInputs = (function() {
     var _this = this;
     $('.js-geocoding-select').select2({
       ajax: {
-        url: 'https://maps.googleapis.com/maps/api/geocode/json',
+        url: window.geocodeRoute,
         dataType: 'json',
+        method: 'POST',
         delay: 250,
         data: function (params) {
-          return { address: params.term, key: window.google_geo_key };
+          return { address: params.term };
         },
         processResults: function (data) {
           locations = [];

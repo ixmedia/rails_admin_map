@@ -3,8 +3,8 @@ $:.push File.expand_path("../lib", __FILE__)
 require 'rails_admin_map/version'
 
 Gem::Specification.new do |s|
-  s.add_runtime_dependency 'rails', ['>= 4.1']
-  s.add_runtime_dependency 'rails_admin', ['>= 0.6']
+  s.add_runtime_dependency 'rails', ['>= 4.1', '<= 5.2.1']
+  s.add_runtime_dependency 'rails_admin', ['>= 0.6', '<= 1.4.2']
 
   s.name              = "rails_admin_map"
   s.version           = RailsAdminMap::VERSION
